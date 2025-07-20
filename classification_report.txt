@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+    Audio_hi       0.86      0.72      0.78      1643
+    Audio_ml       0.44      0.71      0.54       485
+    Audio_mr       0.98      0.98      0.98      1432
+    Audio_pa       0.94      0.90      0.92       314
+
+    accuracy                           0.83      3874
+   macro avg       0.81      0.83      0.81      3874
+weighted avg       0.86      0.83      0.84      3874
