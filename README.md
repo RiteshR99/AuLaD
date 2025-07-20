@@ -41,6 +41,7 @@ Audio_pa       0.94      0.90      0.92       314
 Accuracy                            0.83      3874
 
 Macro avg 0.81 0.83 0.81
+
 Weighted avg 0.86 0.83 0.84
 ---
 
