@@ -61,6 +61,7 @@ Weighted avg 0.86 0.83 0.84
 ### 1. Install dependencies:
 ```bash
 pip install torch torchaudio scikit-learn matplotlib seaborn soundfile
+```
 ---
 
 ## ⏱️ Inference Latency
