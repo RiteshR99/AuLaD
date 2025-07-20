@@ -1,7 +1,7 @@
 # AuLaD
 # 🎙️ Automatic Language Detection (1D CNN + LSTM)
 
-This project implements an automatic spoken language detection model using **1D Convolutional Neural Networks (CNNs)** followed by a **Bidirectional LSTM**. The system is trained on audio data in four Indian languages: **Hindi (hi)**, **Malayalam (ml)**, **Marathi (mr)**, and **Punjabi (pa)**. The goal is to classify a short audio clip into its corresponding language class.
+This project implements an automatic spoken language detection model using **1D Convolutional Neural Networks (CNNs)** followed by a **Bidirectional LSTM**. The system is trained on audio data in four Indian languages: **Hindi (hi)**, **Malayalam (ml)**, **Marathi (mr)**, and **Punjabi (pa)**. The goal is to classify a short audio clip into its corresponding language class. It is trained using 3136 Punjabi, 14321 Marathi, 9491 Malayalam, 16429 Hindi Audio files.
 
 ---
 
@@ -40,8 +40,8 @@ Audio_pa       0.94      0.90      0.92       314
 
 Accuracy                            0.83      3874
 
-Macro avg 0.81 0.83 0.81
 
+Macro avg 0.81 0.83 0.81
 Weighted avg 0.86 0.83 0.84
 ---
 
