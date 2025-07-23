@@ -1,84 +1,150 @@
-# AuLaD
-# 🎙️ Automatic Language Detection (1D CNN + LSTM)
+# 🎙️ Audio Language Detection (ALD)
 
-This project implements an automatic spoken language detection model using **1D Convolutional Neural Networks (CNNs)** followed by a **Bidirectional LSTM**. The system is trained on audio data in four Indian languages: **Hindi (hi)**, **Malayalam (ml)**, **Marathi (mr)**, and **Punjabi (pa)**. The goal is to classify a short audio clip into its corresponding language class. It is trained using 3136 Punjabi, 14321 Marathi, 9491 Malayalam, 16429 Hindi Audio files.
+This repository contains a deep learning-based Audio Language Detection (ALD) system developed from scratch using **PyTorch**. It identifies Indian languages from raw audio using a **1D CNN + BiLSTM** architecture.
 
----
-
-## 🚀 Model Overview
-
-The model architecture consists of:
-- **MFCC extraction** along with delta and delta-delta features
-- **1D CNN layers** for feature extraction
-- **Bidirectional LSTM** for sequence modeling
-- **Fully connected layers** for final classification
-
-Training and evaluation are performed using PyTorch.
+The model is trained on **36k+ audio samples** in 4 Indian languages using data from **Mozilla Common Voice**.
 
 ---
 
 ## 🧠 Model Architecture
 
-- **Input:** 120-channel MFCC feature maps (MFCC + Δ + ΔΔ)
-- **CNN Layers:** Conv1D → ReLU → MaxPool
-- **LSTM:** 2-layer Bidirectional LSTM
-- **Classifier:** Fully Connected (Linear + ReLU + Dropout) → Output Layer
+The model combines temporal and spectral learning using:
+
+- 📉 **MFCC Features + Δ (delta) + ΔΔ (delta-delta)** coefficients
+- 🧩 **1D Convolutional Layers**: Extract short-term temporal patterns
+- 🔁 **Bidirectional LSTM Layers**: Learn long-range temporal dependencies
+- 🧮 **Fully Connected Classifier**: Final softmax-based classification
+
+> The model is trained with learning rate scheduling, early stopping, and stratified splits for robust generalization.
 
 ---
 
-## 📊 Performance
+## 📊 Dataset
 
-- **Test Accuracy:** 83%
-- **Macro F1 Score:** 0.81
+The model is trained on publicly available voice clips from the [Common Voice](https://commonvoice.mozilla.org) project.
 
-**Classification Report:**
+| Language      | Label      | Samples  |
+|---------------|------------|----------|
+| Hindi         | `Audio_hi` | 9,400    |
+| Malayalam     | `Audio_ml` | 9,500    |
+| Marathi       | `Audio_mr` | 14,500   |
+| Punjabi       | `Audio_pa` | 3,100    |
+
+**Total Samples:** ~36,500
+
+---
+
+## 🌟 Key Features
+
+✅ Trained from scratch on real-world multilingual audio  
+✅ Dynamic MFCC + delta feature generation  
+✅ Robust stratified train/val/test splitting  
+✅ Integrated confusion matrix & classification report generation  
+✅ Early stopping with patience monitoring  
+✅ Learning rate decay scheduler  
+✅ Clean, modular, and extensible PyTorch code  
+✅ Easy to scale to more languages
+
+---
+
+## 📈 Results
+
+- ✅ **Test Accuracy:** `96%`
+- 🏆 **Macro F1 Score:** `0.96`
+
+### 🔧 Classification Report
+
           precision    recall  f1-score   support
-Audio_hi       0.86      0.72      0.78      1643
-Audio_ml       0.44      0.71      0.54       485
-Audio_mr       0.98      0.98      0.98      1432
-Audio_pa       0.94      0.90      0.92       314
 
-Accuracy                            0.83      3874
+Audio_hi       0.96      0.96      0.96      1389
+Audio_ml       0.97      0.96      0.97       949
+Audio_mr       0.97      0.98      0.97      1432
+Audio_pa       0.92      0.94      0.93       314
+
+accuracy                           0.96      4084
+macro avg      0.96      0.96      0.96      4084
+weighted avg   0.97      0.96      0.96      4084
 
 
-Macro avg 0.81 0.83 0.81
-Weighted avg 0.86 0.83 0.84
----
+### 📊 Visualizations
 
-## 📉 Training History
+#### Confusion Matrix
 
-![Training Loss and Validation Accuracy](training_history.png)
+![Confusion Matrix](confusion_matrix_new.png)
 
----
+#### Training History
 
-## 🔍 Confusion Matrix
-
-![Confusion Matrix](confusion_matrix.png)
-
----
-
-## 🧪 How to Run
-
-### 1. Install dependencies:
-```bash
-pip install torch torchaudio scikit-learn matplotlib seaborn soundfile
-```
----
-
-## ⏱️ Inference Latency
-
-Evaluation runtime over the test set: **~X seconds**
+![Training History](training_history_new.png)
 
 ---
 
-## 📌 Future Work
+## 🚀 Use Cases
 
-- Add support for more languages  
-- Deploy to web or mobile  
-- Integrate with ASR for full speech pipeline
+- 🗣️ **Multilingual Speech Assistants** – Auto-detect language for seamless communication  
+- ☎️ **Call Center IVRs** – Route calls based on detected spoken language  
+- 📊 **Language Analytics** – Understand regional audio usage  
+- 🎧 **Media Tagging** – Auto-tag spoken language in voice clips  
 
 ---
 
-## 📜 License
+## 🧪 Installation & Usage
 
-This project is licensed under the **MIT License**.
+### 🔧 Requirements
+torch>=1.7
+torchaudio>=0.7
+scikit-learn>=0.24
+numpy
+pandas
+matplotlib
+seaborn
+
+
+### 📦 Setup
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/<your-username>/audio-language-detection.git
+   cd audio-language-detection
+2. (Optional) Create virtual environment
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+3. Install Dependencies
+   ```bash
+   pip install -r requirements.txt
+4. Prepare Dataset
+   Expected folder structure:
+             /path/to/audio/
+          ├── Audio_hi/
+          ├── Audio_ml/
+          ├── Audio_mr/
+          └── Audio_pa/
+   Update base_path in ald.py accordingly.
+5. Run Training
+   ```bash
+   python ald.py
+
+Outputs
+   training_history_new.png – Training loss & accuracy graph
+   confusion_matrix_new.png – Visual confusion matrix
+   classification_report_new.txt – Full test report
+   
+##📂 Files Overview
+File	                              Description
+ald.py	                              Main training & evaluation script
+classification_report_new.txt	          Generated classification report
+confusion_matrix_new.png	          Final test confusion matrix
+training_history_new.png	          Training history plot
+requirements.txt                    	Python dependencies
+LICENSE	                              MIT License
+
+##🧠 Future Improvements
+          Add support for more languages (e.g., Tamil, Bengali, Gujarati)
+          Integrate real-time streaming inference
+          Deploy as a REST API with FastAPI or Flask
+          Convert model to TorchScript or ONNX for mobile inference
+
+##📄 License
+This project is licensed under the MIT License.
+
+
