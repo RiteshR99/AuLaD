@@ -90,13 +90,14 @@ weighted avg   0.97      0.96      0.96      4084
 ## 🧪 Installation & Usage
 
 ### 🔧 Requirements
-torch>=1.7
-torchaudio>=0.7
-scikit-learn>=0.24
-numpy
-pandas
-matplotlib
-seaborn
+    ```bash
+    torch>=1.7
+    torchaudio>=0.7
+    scikit-learn>=0.24
+    numpy
+    pandas
+    matplotlib
+    seaborn
 
 
 ### 📦 Setup
@@ -129,7 +130,7 @@ Outputs
    **confusion_matrix_new.png – Visual confusion matrix
    **classification_report_new.txt – Full test report
    
-##📂 Files Overview
+## 📂 Files Overview
 File	                              Description
 ald.py	                              Main training & evaluation script
 classification_report_new.txt	          Generated classification report
@@ -138,13 +139,16 @@ training_history_new.png	          Training history plot
 requirements.txt                    	Python dependencies
 LICENSE	                              MIT License
 
-##🧠 Future Improvements
+## 🧠 Future Improvements
           Add support for more languages (e.g., Tamil, Bengali, Gujarati)
           Integrate real-time streaming inference
           Deploy as a REST API with FastAPI or Flask
           Convert model to TorchScript or ONNX for mobile inference
 
-##📄 License
+## 📄 License
 This project is licensed under the MIT License.
+## ✨ Acknowledgment
+Special thanks to Digital India Bhashini
+and Mozilla Common Voice for their support and datasets.
 
 
