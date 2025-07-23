@@ -54,17 +54,7 @@ The model is trained on publicly available voice clips from the [Common Voice](h
 
 ### 🔧 Classification Report
 
-          precision    recall  f1-score   support
-
-Audio_hi       0.96      0.96      0.96      1389
-Audio_ml       0.97      0.96      0.97       949
-Audio_mr       0.97      0.98      0.97      1432
-Audio_pa       0.92      0.94      0.93       314
-
-accuracy                           0.96      4084
-macro avg      0.96      0.96      0.96      4084
-weighted avg   0.97      0.96      0.96      4084
-
+![Classification Report](classification_report.txt)
 
 ### 📊 Visualizations
 
@@ -124,11 +114,6 @@ weighted avg   0.97      0.96      0.96      4084
 5. Run Training
    ```bash
    python ald.py
-
-Outputs
-   **training_history_new.png – Training loss & accuracy graph
-   **confusion_matrix_new.png – Visual confusion matrix
-   **classification_report_new.txt – Full test report
    
 ## 📂 Files Overview
 File	                              Description
@@ -140,10 +125,10 @@ requirements.txt                    	Python dependencies
 LICENSE	                              MIT License
 
 ## 🧠 Future Improvements
-          Add support for more languages (e.g., Tamil, Bengali, Gujarati)
-          Integrate real-time streaming inference
-          Deploy as a REST API with FastAPI or Flask
-          Convert model to TorchScript or ONNX for mobile inference
+Add support for more languages (e.g., Tamil, Bengali, Gujarati)
+Integrate real-time streaming inference
+Deploy as a REST API with FastAPI or Flask
+Convert model to TorchScript or ONNX for mobile inference
 
 ## 📄 License
 This project is licensed under the MIT License.
