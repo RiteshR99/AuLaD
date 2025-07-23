@@ -54,7 +54,16 @@ The model is trained on publicly available voice clips from the [Common Voice](h
 
 ### 🔧 Classification Report
 
-![Classification Report](classification_report_new.txt)
+| Class      | Precision | Recall | F1-Score | Support |
+|------------|-----------|--------|----------|---------|
+| Audio_hi   | 0.96      | 0.96   | 0.96     | 1389    |
+| Audio_ml   | 0.97      | 0.96   | 0.97     | 949     |
+| Audio_mr   | 0.97      | 0.98   | 0.97     | 1432    |
+| Audio_pa   | 0.92      | 0.94   | 0.93     | 314     |
+| **Accuracy**    |           |        | **0.96**     | **4084**   |
+| **Macro Avg**  | 0.96      | 0.96   | 0.96     | 4084    |
+| **Weighted Avg** | 0.97   | 0.96   | 0.96     | 4084    |
+
 
 ### 📊 Visualizations
 
