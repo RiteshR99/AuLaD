@@ -125,9 +125,9 @@ seaborn
    python ald.py
 
 Outputs
-   training_history_new.png – Training loss & accuracy graph
-   confusion_matrix_new.png – Visual confusion matrix
-   classification_report_new.txt – Full test report
+   **training_history_new.png – Training loss & accuracy graph
+   **confusion_matrix_new.png – Visual confusion matrix
+   **classification_report_new.txt – Full test report
    
 ##📂 Files Overview
 File	                              Description
