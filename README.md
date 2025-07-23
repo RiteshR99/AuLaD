@@ -54,7 +54,7 @@ The model is trained on publicly available voice clips from the [Common Voice](h
 
 ### 🔧 Classification Report
 
-![Classification Report](classification_report.txt)
+![Classification Report](classification_report_new.txt)
 
 ### 📊 Visualizations
 
